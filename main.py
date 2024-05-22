@@ -8,6 +8,10 @@ def convert():
     km_output = mile_input * 1.61
     output_string.set(f"{km_output:.2f}Km")
 
+# By clicking enter
+def on_enter(event):
+    convert()
+
 # Window
 window = ttk.Window(themename='vapor')
 window.title('Converter')
@@ -34,6 +38,9 @@ input_frame.pack(pady=10)
 output_string = tk.StringVar()
 output_label = ttk.Label(master=window, text='Output', font='Calibri 30', textvariable=output_string)
 output_label.pack(pady=12)
+
+# bind the Enter key to the convert function
+window.bind('<Return>', on_enter)
 
 # run
 window.mainloop()
